@@ -1,0 +1,26 @@
+{
+    "name": "medusaapp/requireactive",
+    "description": "Optional MEDUSA Core package to require the users membership status to be active to log in",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "David Weiner",
+            "email": "david.l.weiner30030@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Personality\\Http\\": "src/Http",
+            "PersonalityRequire\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PersonalityRequire\\ServiceProvider"
+            ]
+        }
+    }
+}
