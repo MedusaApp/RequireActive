@@ -21,7 +21,8 @@ class CheckIfActive
         if ($request->user() &&
             $request->user()->isNotA('member') &&
             ($request->user() instanceof MustVerifyEmail &&
-                $request->user()->hasVerifiedEmail())) {
+                $request->user()->hasVerifiedEmail()) &&
+            !in_array($request->path(), ['login', 'register'])) {
             return Redirect::route('pending');
         }
 
