@@ -23,6 +23,8 @@ class CheckIfActive
             ($request->user() instanceof MustVerifyEmail &&
                 $request->user()->hasVerifiedEmail()) &&
             !in_array($request->path(), ['login', 'register'])) {
+            \Auth::logout();
+            $request->session()->invalidate();
             return Redirect::route('pending');
         }
 
